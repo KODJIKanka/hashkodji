@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcul de l'empreinte</title>
+</head>
+<body>
+    <h1>Calcul de l'empreinte</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'calculate_hash' %}">
+        {% csrf_token %}
+        <label for="file">Fichier :</label>
+        <input type="file" name="file">
+        <br><br>
+        <label for="data">Chaîne de caractères :</label>
+        <textarea name="data"></textarea>
+        <br><br>
+        <input type="submit" value="Calculer">
+    </form> 
+</body>
+</html>
