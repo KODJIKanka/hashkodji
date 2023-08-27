@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calcul de l'empreinte</title>
+    <title>Calcul </title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th{
+            border: 1px solid black;
+            padding: 8px;
+            
+        }
+    </style>
 </head>
 <body>
     <h1>Calcul de l'empreinte</h1>
@@ -15,5 +25,42 @@
         <br><br>
         <input type="submit" value="Calculer">
     </form> 
+
+
+    <h1>Résultat du calcul de l'empreinte</h1>
+<br>
+    
+
+    {% if vide == "" %}
+    <table>
+        <tr>
+            <th>Algorithme</th>
+            <th>Empreinte</th>
+        </tr>
+
+        {% for algorithm, hash_value in results.items %}
+        <tr>
+            <th>{{ algorithm }}</th>
+            <th></th>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<table>
+    <tr>
+        <th>Algorithme</th>
+        <th>Empreinte</th>
+    </tr>
+
+    {% for algorithm, hash_value in results.items %}
+    <tr>
+        <th>{{ algorithm }}</th>
+        <th style="text-align: justify;">{{ hash_value }}</th>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endif %}
+
 </body>
 </html>
